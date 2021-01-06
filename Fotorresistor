@@ -1,0 +1,20 @@
+int sensor = 0;
+int leitura = 0;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(11, OUTPUT); //led
+}
+
+void loop()
+{
+	leitura = analogRead(sensor);
+  if (leitura > 500){
+  	digitalWrite(11, HIGH);
+  } else{
+  	digitalWrite(11, LOW);
+  }
+  
+  
+}
