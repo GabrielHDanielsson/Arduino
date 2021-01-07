@@ -1,0 +1,24 @@
+#include <Servo.h>
+
+Servo servoMotor;
+int angulo = 0;
+
+void setup()
+{
+  servoMotor.attach(6);
+}
+
+void loop()
+{
+
+  for(angulo=0; angulo<180; angulo+=1){
+  	servoMotor.write(angulo);
+    delay(10);
+  }
+  
+  for(angulo=-180; angulo>=1; angulo-=1){
+   	servoMotor.write(angulo);
+    delay(10);
+  }
+  
+}
