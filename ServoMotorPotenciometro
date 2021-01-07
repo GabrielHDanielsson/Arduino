@@ -1,0 +1,28 @@
+#include <Servo.h>
+
+Servo servoMotor;
+int angulo = 0;
+int potenciometro = A1;
+int LED = 10;
+
+void setup()
+{
+  servoMotor.attach(6);
+  pinMode(LED, OUTPUT);
+}
+
+void loop()
+{
+
+	angulo = analogRead(potenciometro);
+    angulo = map(angulo, 0, 1023, 0, 179);
+  	servoMotor.write(angulo);
+  	delay(10);
+  	
+  if(angulo > 100){
+  	digitalWrite(LED, HIGH);
+  }
+  else{
+      digitalWrite(LED, LOW);
+  }
+}
