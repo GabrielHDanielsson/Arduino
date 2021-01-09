@@ -1,0 +1,87 @@
+#include <SoftwareSerial.h>
+
+int Red = 10;
+int Green = 8;
+int Blue = 9;
+int Vibra = 13;
+
+String cor;
+
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(Red, OUTPUT);
+  pinMode(Green, OUTPUT);
+  pinMode(Blue, OUTPUT);
+  pinMode(Vibra, OUTPUT);
+  
+}
+
+void vermelho(){
+	digitalWrite(Red, HIGH);
+  	digitalWrite(Green, LOW);
+  	digitalWrite(Blue, LOW);
+  	digitalWrite(Vibra, HIGH);
+}
+void verde(){
+	digitalWrite(Red, LOW);
+  	digitalWrite(Green, HIGH);
+  	digitalWrite(Blue, LOW); 
+  	digitalWrite(Vibra, HIGH);
+}
+
+void azul(){
+	digitalWrite(Red, LOW);
+  	digitalWrite(Green, LOW);
+  	digitalWrite(Blue, HIGH); 
+  	digitalWrite(Vibra, HIGH);
+}
+
+
+void amarelo(){
+ 	digitalWrite(Red, 255);
+  	digitalWrite(Green, 255);
+  	digitalWrite(Blue, 0);  
+  	digitalWrite(Vibra, HIGH);
+}
+
+void branco(){
+ 	digitalWrite(Red, HIGH);
+  	digitalWrite(Green, HIGH);
+  	digitalWrite(Blue, HIGH); 
+  	digitalWrite(Vibra, HIGH);
+}
+
+void roxo(){
+ 	digitalWrite(Red, 255);
+  	digitalWrite(Green, LOW);
+  	digitalWrite(Blue, 207);  
+  	digitalWrite(Vibra, HIGH);
+}
+
+void loop()
+{
+ 
+  cor = Serial.readString();
+  Serial.println(cor);
+  
+  if(cor == "Vermelho"){
+  	vermelho();
+  }
+  if(cor == "Verde"){
+  	verde();
+  }
+  if(cor == "Azul"){
+  	azul();
+  }
+  if(cor == "Branco"){
+  	branco();
+  }
+  if(cor == "Roxo"){
+  	roxo();
+  }
+  if(cor == "Amarelo"){
+  	amarelo();
+  }
+  
+}
